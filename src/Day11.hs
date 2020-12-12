@@ -83,7 +83,7 @@ processSeat m g cF cB = case getSeatState g m of
                     EmptySeat -> if cF m g then OccupiedSeat else EmptySeat
 
 processRow :: Map -> Checker -> Checker -> Int -> V.Vector Elem
-processRow m c1 c2 r = V.fromList $ map f $ [x| x <- [0..((snd s)-1)]]
+processRow m c1 c2 r = V.fromList $ map f $ [x | x <- [0..((snd s)-1)]]
     where
         g = getGrid m
         s = size g
@@ -96,7 +96,7 @@ simulate m c1 c2 = if changed then mu else simulate mu c1 c2
         changed = m == mu
         g = getGrid m
         s = size g
-        u = V.fromList $ map (processRow m c1 c2) [y| y <- [0..((fst s)-1)]]
+        u = V.fromList $ map (processRow m c1 c2) [y | y <- [0..((fst s)-1)]]
 
 countOccupied :: Map -> Int
 countOccupied (Map _ es) = V.length $ V.filter (OccupiedSeat ==) $ V.foldr1 (V.++) es
