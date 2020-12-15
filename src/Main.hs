@@ -17,6 +17,8 @@ import Day10 (day10A, day10B)
 import Day11 (day11A, day11B)
 import Day12 (day12A, day12B)
 import Day13 (day13A, day13B)
+import Day14 (day14A, day14B)
+import Day15 (day15A, day15B)
 
 data Flag
     = Day Int | IterB | Input String
@@ -57,6 +59,10 @@ run 12 'a' i = day12A i
 run 12 'b' i = day12B i
 run 13 'a' i = day13A i
 run 13 'b' i = day13B i
+run 14 'a' i = day14A i
+run 14 'b' i = day14B i
+run 15 'a' i = day15A i
+run 15 'b' i = day15B i
 run d o i = do
     hPutStrLn stderr ("Unknown day " ++ show d)
     exitWith (ExitFailure 1)
